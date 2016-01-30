@@ -37,16 +37,15 @@ Transfer/sec:     14.16KB
 
 **H2O**
 ```
-$ wrk -t1 -c400 -d30s http://127.0.0.1:7890/ 
-Running 30s test @ http://127.0.0.1:7890/
+$ wrk -t1 -c400 -d30s http://127.0.0.1:7890/chunked-test/
+Running 30s test @ http://127.0.0.1:7890/chunked-test/
   1 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   276.57ms   46.57ms 369.93ms   77.47%
-    Req/Sec     1.44k   382.80     2.92k    69.57%
-  43023 requests in 30.07s, 7.67MB read
-  Non-2xx or 3xx responses: 43023
-Requests/sec:   1430.90
-Transfer/sec:    261.31KB
+    Latency   141.16ms  121.63ms   1.23s    93.98%
+    Req/Sec     3.20k     1.71k    6.26k    60.62%
+  93380 requests in 30.07s, 16.21MB read
+Requests/sec:   3105.32
+Transfer/sec:    551.92KB
 ```
 
 **Meteor.js**

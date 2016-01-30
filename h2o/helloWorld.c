@@ -39,12 +39,10 @@
 
 struct hello_t {
   char *name;
-  int age;
-} helloData = { "World", 42 };
+} helloData = { "World" };
 
 lwan_var_descriptor_t hello_descriptor[] = {
   TPL_VAR_STR(struct hello_t, name),
-  TPL_VAR_STR(struct hello_t, age),
   TPL_VAR_SENTINEL
 };
 
