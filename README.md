@@ -51,7 +51,7 @@ Transfer/sec:    551.92KB
 **Meteor.js**
 ```
 $ wrk -t1 -c400 -d30s http://127.0.0.1:3000/
-  Running 30s test @ http://127.0.0.1:3000/
+Running 30s test @ http://127.0.0.1:3000/
   1 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency     1.73s   203.83ms   2.00s    68.72%
@@ -65,13 +65,13 @@ Transfer/sec:    737.34KB
 **golang**
 ```
 $ wrk -t1 -c400 -d30s http://127.0.0.1:8080/ 
-  Running 30s test @ http://127.0.0.1:8080/
+Running 30s test @ http://127.0.0.1:8080/
   1 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     6.90ms    4.82ms  64.87ms   78.93%
-    Req/Sec    45.77k    16.91k   81.11k    49.16%
-  1364999 requests in 30.08s, 238.22MB read
-  Requests/sec:  45374.55
-  Transfer/sec:      7.92MB
-
+    Latency    87.95ms  267.86ms   1.99s    90.48%
+    Req/Sec     5.64k   574.35     6.72k    75.33%
+  168514 requests in 30.10s, 29.41MB read
+  Socket errors: connect 0, read 0, write 0, timeout 1560
+Requests/sec:   5598.88
+Transfer/sec:   0.98MB
 ```
