@@ -1,7 +1,7 @@
 # http_server_benchmarking
 This is just a benchmark of various http servers. All servers tested use a basic templating engine to display "Hello, World!" to the client, where "World" is a dynamic variable handled by the template.
 
-The templating engines used are Jade for the Express.js app, [lwan-mustache-c](https://github.com/adam-hanna/lwan-mustache-c) for the h2o server, and Blaze for meteor.
+The templating engines used are Jade for the Express.js app, [lwan-mustache-c](https://github.com/adam-hanna/lwan-mustache-c) for the h2o server, Blaze for meteor, and the internal templating engine for golang.
 
 I used [wrk](https://github.com/wg/wrk) to run 30s tests.
 
@@ -50,7 +50,8 @@ Transfer/sec:    551.92KB
 
 **Meteor.js**
 ```
-$ wrk -t1 -c400 -d30s http://127.0.0.1:3000/Running 30s test @ http://127.0.0.1:3000/
+$ wrk -t1 -c400 -d30s http://127.0.0.1:3000/
+  Running 30s test @ http://127.0.0.1:3000/
   1 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency     1.73s   203.83ms   2.00s    68.72%
@@ -59,4 +60,18 @@ $ wrk -t1 -c400 -d30s http://127.0.0.1:3000/Running 30s test @ http://127.0.0.1:
   Socket errors: connect 0, read 0, write 0, timeout 2560
 Requests/sec:    114.40
 Transfer/sec:    737.34KB
+```
+
+**golang**
+```
+$ wrk -t1 -c400 -d30s http://127.0.0.1:8080/ 
+  Running 30s test @ http://127.0.0.1:8080/
+  1 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     6.90ms    4.82ms  64.87ms   78.93%
+    Req/Sec    45.77k    16.91k   81.11k    49.16%
+  1364999 requests in 30.08s, 238.22MB read
+  Requests/sec:  45374.55
+  Transfer/sec:      7.92MB
+
 ```
